@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using libreriaIII2025;
 
 namespace ProyectoUsadosGrupo4
 {
     public partial class frmlogin : Form
     {
+        public DataSet ds;
+
         public frmlogin()
         {
             InitializeComponent();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

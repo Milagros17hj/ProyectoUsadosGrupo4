@@ -8,14 +8,12 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using Microsoft.Win32.SafeHandles;
 
-
-namespace libreria2025
+namespace libreriaIII2025
 {
     public class Utilidades
     {
-
-        //Conexión a la base de datos
-        //Cadena de conexión a la base de datos "CAMBIARA EN CADA UNO SEGUN LA BASE DE DATOS QUE SE USE"
+        //Conexión
+        //Escribir la cadena de conexión a la base de datos "CAMBIARA EN CADA UNO SEGUN LA BASE DE DATOS QUE SE USE"
 
         public static DataSet ejecutar(string comando)
         {
@@ -27,20 +25,19 @@ namespace libreria2025
             conn.Close();
             return ds;
         }
-
-        public static string codificar(string contraseña)
+        
+        public static string codificar(string contrasena)
         {
-            byte[] datos = Encoding.UTF8.GetBytes(contraseña);
+            byte[] datos = Encoding.UTF8.GetBytes(contrasena);
             return System.Convert.ToBase64String(datos);
 
 
         }
-        public static string decodificar(string contraseña)
+        public static string decodificar(string contrasena)
         {
-            byte[] datos = Convert.FromBase64String(contraseña);
+            byte[] datos = Convert.FromBase64String(contrasena);
             return Encoding.UTF8.GetString(datos, 0, datos.Length);
 
         }
-
     }
 }
