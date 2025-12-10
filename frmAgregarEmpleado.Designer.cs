@@ -32,14 +32,14 @@
             this.ckbEstado = new System.Windows.Forms.CheckBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.txtConfirmar = new System.Windows.Forms.TextBox();
-            this.cmbPerfil = new System.Windows.Forms.ComboBox();
+            this.cmbRol = new System.Windows.Forms.ComboBox();
             this.lblConfirmContraseña = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.lblContraseña = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.txtemail = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido1 = new System.Windows.Forms.Label();
@@ -52,32 +52,32 @@
             this.lblSexo = new System.Windows.Forms.Label();
             this.cmbSexo = new System.Windows.Forms.ComboBox();
             this.lblFechaNac = new System.Windows.Forms.Label();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblVencimientoIdent = new System.Windows.Forms.Label();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblProvincia = new System.Windows.Forms.Label();
-            this.lblCantón = new System.Windows.Forms.Label();
-            this.lblDistrito = new System.Windows.Forms.Label();
-            this.cmbProvincia = new System.Windows.Forms.ComboBox();
-            this.txtCanton = new System.Windows.Forms.TextBox();
-            this.txtDistrito = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
+            this.grbDatos = new System.Windows.Forms.GroupBox();
             this.txtTelefóno = new System.Windows.Forms.TextBox();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
+            this.txtCanton = new System.Windows.Forms.TextBox();
+            this.cmbProvincia = new System.Windows.Forms.ComboBox();
+            this.lblDistrito = new System.Windows.Forms.Label();
+            this.lblCantón = new System.Windows.Forms.Label();
+            this.lblProvincia = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grbRegistro = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grbDatos.SuspendLayout();
+            this.grbRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(739, 351);
+            this.dateTimePicker1.Location = new System.Drawing.Point(704, 21);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 45;
@@ -107,20 +107,20 @@
             // txtConfirmar
             // 
             this.txtConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmar.Location = new System.Drawing.Point(262, 409);
+            this.txtConfirmar.Location = new System.Drawing.Point(239, 93);
             this.txtConfirmar.Name = "txtConfirmar";
             this.txtConfirmar.Size = new System.Drawing.Size(150, 27);
             this.txtConfirmar.TabIndex = 40;
             // 
-            // cmbPerfil
+            // cmbRol
             // 
-            this.cmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPerfil.FormattingEnabled = true;
-            this.cmbPerfil.Location = new System.Drawing.Point(554, 404);
-            this.cmbPerfil.Name = "cmbPerfil";
-            this.cmbPerfil.Size = new System.Drawing.Size(119, 28);
-            this.cmbPerfil.TabIndex = 38;
+            this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRol.FormattingEnabled = true;
+            this.cmbRol.Location = new System.Drawing.Point(687, 88);
+            this.cmbRol.Name = "cmbRol";
+            this.cmbRol.Size = new System.Drawing.Size(119, 28);
+            this.cmbRol.TabIndex = 38;
             // 
             // lblConfirmContraseña
             // 
@@ -136,7 +136,7 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(469, 412);
+            this.lblPerfil.Location = new System.Drawing.Point(609, 96);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(53, 20);
             this.lblPerfil.TabIndex = 34;
@@ -180,13 +180,13 @@
             this.txtContraseña.Size = new System.Drawing.Size(145, 27);
             this.txtContraseña.TabIndex = 29;
             // 
-            // txtemail
+            // txtEmail
             // 
-            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(736, 158);
-            this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(233, 27);
-            this.txtemail.TabIndex = 27;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(736, 158);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(233, 27);
+            this.txtEmail.TabIndex = 27;
             // 
             // txtNombre
             // 
@@ -257,7 +257,7 @@
             this.cmbIdentificación.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIdentificación.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbIdentificación.FormattingEnabled = true;
-            this.cmbIdentificación.Location = new System.Drawing.Point(232, 93);
+            this.cmbIdentificación.Location = new System.Drawing.Point(241, 96);
             this.cmbIdentificación.Name = "cmbIdentificación";
             this.cmbIdentificación.Size = new System.Drawing.Size(123, 28);
             this.cmbIdentificación.TabIndex = 52;
@@ -285,6 +285,9 @@
             this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSexo.FormattingEnabled = true;
+            this.cmbSexo.Items.AddRange(new object[] {
+            "F",
+            "M"});
             this.cmbSexo.Location = new System.Drawing.Point(468, 159);
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(80, 28);
@@ -300,12 +303,12 @@
             this.lblFechaNac.TabIndex = 56;
             this.lblFechaNac.Text = "Fecha de nacimiento:";
             // 
-            // dtp
+            // dtpNacimiento
             // 
-            this.dtp.Location = new System.Drawing.Point(232, 159);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(138, 22);
-            this.dtp.TabIndex = 57;
+            this.dtpNacimiento.Location = new System.Drawing.Point(241, 162);
+            this.dtpNacimiento.Name = "dtpNacimiento";
+            this.dtpNacimiento.Size = new System.Drawing.Size(138, 22);
+            this.dtpNacimiento.TabIndex = 57;
             // 
             // lblVencimientoIdent
             // 
@@ -324,90 +327,42 @@
             this.dtpVencimiento.Size = new System.Drawing.Size(123, 22);
             this.dtpVencimiento.TabIndex = 59;
             // 
-            // groupBox1
+            // grbDatos
             // 
-            this.groupBox1.Controls.Add(this.dtpVencimiento);
-            this.groupBox1.Controls.Add(this.txtTelefóno);
-            this.groupBox1.Controls.Add(this.lblVencimientoIdent);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.txtIdentificación);
-            this.groupBox1.Controls.Add(this.dtp);
-            this.groupBox1.Controls.Add(this.cmbIdentificación);
-            this.groupBox1.Controls.Add(this.txtDistrito);
-            this.groupBox1.Controls.Add(this.lblTipoIden);
-            this.groupBox1.Controls.Add(this.lblFechaNac);
-            this.groupBox1.Controls.Add(this.txtCanton);
-            this.groupBox1.Controls.Add(this.cmbSexo);
-            this.groupBox1.Controls.Add(this.lblSexo);
-            this.groupBox1.Controls.Add(this.cmbProvincia);
-            this.groupBox1.Controls.Add(this.lblDistrito);
-            this.groupBox1.Controls.Add(this.lblCantón);
-            this.groupBox1.Controls.Add(this.lblProvincia);
-            this.groupBox1.Controls.Add(this.txtemail);
-            this.groupBox1.Controls.Add(this.lblUsuario);
-            this.groupBox1.Controls.Add(this.lblCedula);
-            this.groupBox1.Location = new System.Drawing.Point(30, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1013, 298);
-            this.groupBox1.TabIndex = 60;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.grbDatos.Controls.Add(this.dtpVencimiento);
+            this.grbDatos.Controls.Add(this.txtTelefóno);
+            this.grbDatos.Controls.Add(this.lblVencimientoIdent);
+            this.grbDatos.Controls.Add(this.lblTelefono);
+            this.grbDatos.Controls.Add(this.txtIdentificación);
+            this.grbDatos.Controls.Add(this.dtpNacimiento);
+            this.grbDatos.Controls.Add(this.cmbIdentificación);
+            this.grbDatos.Controls.Add(this.txtDistrito);
+            this.grbDatos.Controls.Add(this.lblTipoIden);
+            this.grbDatos.Controls.Add(this.lblFechaNac);
+            this.grbDatos.Controls.Add(this.txtCanton);
+            this.grbDatos.Controls.Add(this.cmbSexo);
+            this.grbDatos.Controls.Add(this.lblSexo);
+            this.grbDatos.Controls.Add(this.cmbProvincia);
+            this.grbDatos.Controls.Add(this.lblDistrito);
+            this.grbDatos.Controls.Add(this.lblCantón);
+            this.grbDatos.Controls.Add(this.lblProvincia);
+            this.grbDatos.Controls.Add(this.txtEmail);
+            this.grbDatos.Controls.Add(this.lblUsuario);
+            this.grbDatos.Controls.Add(this.lblCedula);
+            this.grbDatos.Location = new System.Drawing.Point(30, 12);
+            this.grbDatos.Name = "grbDatos";
+            this.grbDatos.Size = new System.Drawing.Size(1013, 298);
+            this.grbDatos.TabIndex = 60;
+            this.grbDatos.TabStop = false;
+            this.grbDatos.Text = "Datos del Usuario";
             // 
-            // lblProvincia
+            // txtTelefóno
             // 
-            this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProvincia.Location = new System.Drawing.Point(48, 228);
-            this.lblProvincia.Name = "lblProvincia";
-            this.lblProvincia.Size = new System.Drawing.Size(83, 20);
-            this.lblProvincia.TabIndex = 61;
-            this.lblProvincia.Text = "Provincia:";
-            // 
-            // lblCantón
-            // 
-            this.lblCantón.AutoSize = true;
-            this.lblCantón.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantón.Location = new System.Drawing.Point(297, 228);
-            this.lblCantón.Name = "lblCantón";
-            this.lblCantón.Size = new System.Drawing.Size(67, 20);
-            this.lblCantón.TabIndex = 62;
-            this.lblCantón.Text = "Cantón:";
-            // 
-            // lblDistrito
-            // 
-            this.lblDistrito.AutoSize = true;
-            this.lblDistrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistrito.Location = new System.Drawing.Point(509, 224);
-            this.lblDistrito.Name = "lblDistrito";
-            this.lblDistrito.Size = new System.Drawing.Size(69, 20);
-            this.lblDistrito.TabIndex = 63;
-            this.lblDistrito.Text = "Distrito:";
-            // 
-            // cmbProvincia
-            // 
-            this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProvincia.FormattingEnabled = true;
-            this.cmbProvincia.Location = new System.Drawing.Point(152, 225);
-            this.cmbProvincia.Name = "cmbProvincia";
-            this.cmbProvincia.Size = new System.Drawing.Size(116, 28);
-            this.cmbProvincia.TabIndex = 61;
-            // 
-            // txtCanton
-            // 
-            this.txtCanton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCanton.Location = new System.Drawing.Point(370, 221);
-            this.txtCanton.Name = "txtCanton";
-            this.txtCanton.Size = new System.Drawing.Size(113, 27);
-            this.txtCanton.TabIndex = 61;
-            // 
-            // txtDistrito
-            // 
-            this.txtDistrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDistrito.Location = new System.Drawing.Point(580, 221);
-            this.txtDistrito.Name = "txtDistrito";
-            this.txtDistrito.Size = new System.Drawing.Size(110, 27);
-            this.txtDistrito.TabIndex = 64;
+            this.txtTelefóno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefóno.Location = new System.Drawing.Point(809, 217);
+            this.txtTelefóno.Name = "txtTelefóno";
+            this.txtTelefóno.Size = new System.Drawing.Size(110, 27);
+            this.txtTelefóno.TabIndex = 65;
             // 
             // lblTelefono
             // 
@@ -419,13 +374,61 @@
             this.lblTelefono.TabIndex = 61;
             this.lblTelefono.Text = "Telefóno:";
             // 
-            // txtTelefóno
+            // txtDistrito
             // 
-            this.txtTelefóno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefóno.Location = new System.Drawing.Point(809, 217);
-            this.txtTelefóno.Name = "txtTelefóno";
-            this.txtTelefóno.Size = new System.Drawing.Size(110, 27);
-            this.txtTelefóno.TabIndex = 65;
+            this.txtDistrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrito.Location = new System.Drawing.Point(580, 221);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.Size = new System.Drawing.Size(110, 27);
+            this.txtDistrito.TabIndex = 64;
+            // 
+            // txtCanton
+            // 
+            this.txtCanton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCanton.Location = new System.Drawing.Point(370, 221);
+            this.txtCanton.Name = "txtCanton";
+            this.txtCanton.Size = new System.Drawing.Size(113, 27);
+            this.txtCanton.TabIndex = 61;
+            // 
+            // cmbProvincia
+            // 
+            this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProvincia.FormattingEnabled = true;
+            this.cmbProvincia.Location = new System.Drawing.Point(152, 225);
+            this.cmbProvincia.Name = "cmbProvincia";
+            this.cmbProvincia.Size = new System.Drawing.Size(116, 28);
+            this.cmbProvincia.TabIndex = 61;
+            // 
+            // lblDistrito
+            // 
+            this.lblDistrito.AutoSize = true;
+            this.lblDistrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDistrito.Location = new System.Drawing.Point(509, 224);
+            this.lblDistrito.Name = "lblDistrito";
+            this.lblDistrito.Size = new System.Drawing.Size(69, 20);
+            this.lblDistrito.TabIndex = 63;
+            this.lblDistrito.Text = "Distrito:";
+            // 
+            // lblCantón
+            // 
+            this.lblCantón.AutoSize = true;
+            this.lblCantón.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantón.Location = new System.Drawing.Point(297, 228);
+            this.lblCantón.Name = "lblCantón";
+            this.lblCantón.Size = new System.Drawing.Size(67, 20);
+            this.lblCantón.TabIndex = 62;
+            this.lblCantón.Text = "Cantón:";
+            // 
+            // lblProvincia
+            // 
+            this.lblProvincia.AutoSize = true;
+            this.lblProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvincia.Location = new System.Drawing.Point(48, 228);
+            this.lblProvincia.Name = "lblProvincia";
+            this.lblProvincia.Size = new System.Drawing.Size(83, 20);
+            this.lblProvincia.TabIndex = 61;
+            this.lblProvincia.Text = "Provincia:";
             // 
             // btnSalir
             // 
@@ -436,6 +439,7 @@
             this.btnSalir.TabIndex = 65;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEliminar
             // 
@@ -456,6 +460,7 @@
             this.btnGrabar.TabIndex = 63;
             this.btnGrabar.Text = "&Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // btnConsultar
             // 
@@ -476,16 +481,21 @@
             this.btnLimpiar.TabIndex = 61;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // groupBox2
+            // grbRegistro
             // 
-            this.groupBox2.Controls.Add(this.dgvDatos);
-            this.groupBox2.Location = new System.Drawing.Point(30, 316);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1013, 305);
-            this.groupBox2.TabIndex = 66;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.grbRegistro.Controls.Add(this.dgvDatos);
+            this.grbRegistro.Controls.Add(this.txtConfirmar);
+            this.grbRegistro.Controls.Add(this.dateTimePicker1);
+            this.grbRegistro.Controls.Add(this.cmbRol);
+            this.grbRegistro.Controls.Add(this.lblPerfil);
+            this.grbRegistro.Location = new System.Drawing.Point(30, 316);
+            this.grbRegistro.Name = "grbRegistro";
+            this.grbRegistro.Size = new System.Drawing.Size(1013, 305);
+            this.grbRegistro.TabIndex = 66;
+            this.grbRegistro.TabStop = false;
+            this.grbRegistro.Text = "Registro al Programa";
             // 
             // frmAgregarEmpleado
             // 
@@ -502,23 +512,21 @@
             this.Controls.Add(this.txtApellido1);
             this.Controls.Add(this.lblApellido1);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ckbEstado);
-            this.Controls.Add(this.txtConfirmar);
-            this.Controls.Add(this.cmbPerfil);
             this.Controls.Add(this.lblConfirmContraseña);
-            this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grbDatos);
+            this.Controls.Add(this.grbRegistro);
             this.Name = "frmAgregarEmpleado";
             this.Text = "Agregar Usuario - Empleado";
+            this.Load += new System.EventHandler(this.frmAgregarEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.grbDatos.ResumeLayout(false);
+            this.grbDatos.PerformLayout();
+            this.grbRegistro.ResumeLayout(false);
+            this.grbRegistro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -530,14 +538,14 @@
         private System.Windows.Forms.CheckBox ckbEstado;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.TextBox txtConfirmar;
-        private System.Windows.Forms.ComboBox cmbPerfil;
+        private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.Label lblConfirmContraseña;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.TextBox txtemail;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido1;
@@ -550,10 +558,10 @@
         private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.ComboBox cmbSexo;
         private System.Windows.Forms.Label lblFechaNac;
-        private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.DateTimePicker dtpNacimiento;
         private System.Windows.Forms.Label lblVencimientoIdent;
         private System.Windows.Forms.DateTimePicker dtpVencimiento;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbDatos;
         private System.Windows.Forms.TextBox txtCanton;
         private System.Windows.Forms.ComboBox cmbProvincia;
         private System.Windows.Forms.Label lblDistrito;
@@ -567,6 +575,6 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grbRegistro;
     }
 }
