@@ -27,8 +27,10 @@ namespace ProyectoUsadosGrupo4
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-          //TERMINAR REGISTRO
-
+           
+            
         }
+
+    
     }
 }

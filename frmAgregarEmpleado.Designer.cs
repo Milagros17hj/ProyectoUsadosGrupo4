@@ -186,6 +186,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(736, 158);
             this.txtEmail.Name = "txtEmail";
@@ -194,6 +195,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(179, 47);
             this.txtNombre.Name = "txtNombre";
@@ -222,6 +224,7 @@
             // 
             // txtApellido1
             // 
+            this.txtApellido1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido1.Location = new System.Drawing.Point(479, 44);
             this.txtApellido1.Name = "txtApellido1";
@@ -240,6 +243,7 @@
             // 
             // txtApellido2
             // 
+            this.txtApellido2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido2.Location = new System.Drawing.Point(787, 43);
             this.txtApellido2.Name = "txtApellido2";
@@ -382,6 +386,7 @@
             // 
             // txtDistrito
             // 
+            this.txtDistrito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDistrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDistrito.Location = new System.Drawing.Point(580, 221);
             this.txtDistrito.Name = "txtDistrito";
@@ -390,6 +395,7 @@
             // 
             // txtCanton
             // 
+            this.txtCanton.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCanton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCanton.Location = new System.Drawing.Point(370, 221);
             this.txtCanton.Name = "txtCanton";

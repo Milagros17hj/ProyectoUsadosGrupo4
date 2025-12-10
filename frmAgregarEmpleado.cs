@@ -19,6 +19,7 @@ namespace ProyectoUsadosGrupo4
         string idProvincia;
         string sexo;
         bool cargandoDatos = false;
+  
 
 
         public frmAgregarEmpleado()
@@ -37,6 +38,8 @@ namespace ProyectoUsadosGrupo4
         }
         private void limpiar()
         {
+            ckbEstado.CheckedChanged -= ckbEstado_CheckedChanged_1;
+
             txtNombre.Clear();
             txtApellido1.Clear();
             txtApellido2.Clear();
@@ -50,16 +53,16 @@ namespace ProyectoUsadosGrupo4
             txtCanton.Clear();
             txtDistrito.Clear();
             txtTeléfono.Clear();
-
-
             cmbRol.SelectedItem = null;
             txtContraseña.Clear();
             txtConfirmar.Clear();
             ckbEstado.Checked = false;
 
             if (ds != null) ds.Clear();
-
             txtNombre.Focus();
+            ckbEstado.CheckedChanged += ckbEstado_CheckedChanged_1;
+
+
 
         }
 
@@ -375,7 +378,7 @@ namespace ProyectoUsadosGrupo4
 
                 MessageBox.Show("Se a eliminado al usuario satisfactoriamente", "Eliminar",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                limpiar();
                 cargar();
             }
             catch (Exception ex)
