@@ -56,8 +56,8 @@
             this.lblVencimientoIdent = new System.Windows.Forms.Label();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.grbDatos = new System.Windows.Forms.GroupBox();
-            this.txtTelefóno = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
+            this.txtTeléfono = new System.Windows.Forms.TextBox();
+            this.lblTeléfono = new System.Windows.Forms.Label();
             this.txtDistrito = new System.Windows.Forms.TextBox();
             this.txtCanton = new System.Windows.Forms.TextBox();
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
@@ -77,7 +77,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(704, 21);
+            this.dateTimePicker1.Location = new System.Drawing.Point(715, 30);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 45;
@@ -92,6 +92,7 @@
             this.ckbEstado.TabIndex = 44;
             this.ckbEstado.Text = "Inhabilitar Usuario";
             this.ckbEstado.UseVisualStyleBackColor = true;
+            this.ckbEstado.CheckedChanged += new System.EventHandler(this.ckbEstado_CheckedChanged_1);
             // 
             // dgvDatos
             // 
@@ -99,8 +100,10 @@
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(35, 142);
             this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
+            this.dgvDatos.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvDatos.Size = new System.Drawing.Size(956, 145);
             this.dgvDatos.TabIndex = 42;
             // 
@@ -117,10 +120,11 @@
             this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(687, 88);
+            this.cmbRol.Location = new System.Drawing.Point(632, 88);
             this.cmbRol.Name = "cmbRol";
             this.cmbRol.Size = new System.Drawing.Size(119, 28);
             this.cmbRol.TabIndex = 38;
+            this.cmbRol.SelectionChangeCommitted += new System.EventHandler(this.cmbRol_SelectionChangeCommitted);
             // 
             // lblConfirmContraseña
             // 
@@ -136,7 +140,7 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(609, 96);
+            this.lblPerfil.Location = new System.Drawing.Point(554, 96);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(53, 20);
             this.lblPerfil.TabIndex = 34;
@@ -261,6 +265,7 @@
             this.cmbIdentificación.Name = "cmbIdentificación";
             this.cmbIdentificación.Size = new System.Drawing.Size(123, 28);
             this.cmbIdentificación.TabIndex = 52;
+            this.cmbIdentificación.SelectionChangeCommitted += new System.EventHandler(this.cmbIdentificación_SelectionChangeCommitted);
             // 
             // txtIdentificación
             // 
@@ -292,6 +297,7 @@
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(80, 28);
             this.cmbSexo.TabIndex = 55;
+            this.cmbSexo.SelectionChangeCommitted += new System.EventHandler(this.cmbSexo_SelectionChangeCommitted);
             // 
             // lblFechaNac
             // 
@@ -330,9 +336,9 @@
             // grbDatos
             // 
             this.grbDatos.Controls.Add(this.dtpVencimiento);
-            this.grbDatos.Controls.Add(this.txtTelefóno);
+            this.grbDatos.Controls.Add(this.txtTeléfono);
             this.grbDatos.Controls.Add(this.lblVencimientoIdent);
-            this.grbDatos.Controls.Add(this.lblTelefono);
+            this.grbDatos.Controls.Add(this.lblTeléfono);
             this.grbDatos.Controls.Add(this.txtIdentificación);
             this.grbDatos.Controls.Add(this.dtpNacimiento);
             this.grbDatos.Controls.Add(this.cmbIdentificación);
@@ -356,23 +362,23 @@
             this.grbDatos.TabStop = false;
             this.grbDatos.Text = "Datos del Usuario";
             // 
-            // txtTelefóno
+            // txtTeléfono
             // 
-            this.txtTelefóno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefóno.Location = new System.Drawing.Point(809, 217);
-            this.txtTelefóno.Name = "txtTelefóno";
-            this.txtTelefóno.Size = new System.Drawing.Size(110, 27);
-            this.txtTelefóno.TabIndex = 65;
+            this.txtTeléfono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTeléfono.Location = new System.Drawing.Point(809, 217);
+            this.txtTeléfono.Name = "txtTeléfono";
+            this.txtTeléfono.Size = new System.Drawing.Size(110, 27);
+            this.txtTeléfono.TabIndex = 65;
             // 
-            // lblTelefono
+            // lblTeléfono
             // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(711, 221);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(78, 20);
-            this.lblTelefono.TabIndex = 61;
-            this.lblTelefono.Text = "Telefóno:";
+            this.lblTeléfono.AutoSize = true;
+            this.lblTeléfono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeléfono.Location = new System.Drawing.Point(711, 221);
+            this.lblTeléfono.Name = "lblTeléfono";
+            this.lblTeléfono.Size = new System.Drawing.Size(78, 20);
+            this.lblTeléfono.TabIndex = 61;
+            this.lblTeléfono.Text = "Teléfono:";
             // 
             // txtDistrito
             // 
@@ -399,6 +405,7 @@
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(116, 28);
             this.cmbProvincia.TabIndex = 61;
+            this.cmbProvincia.SelectionChangeCommitted += new System.EventHandler(this.cmbProvincia_SelectionChangeCommitted);
             // 
             // lblDistrito
             // 
@@ -450,6 +457,7 @@
             this.btnEliminar.TabIndex = 64;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGrabar
             // 
@@ -471,6 +479,7 @@
             this.btnConsultar.TabIndex = 62;
             this.btnConsultar.Text = "&Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnLimpiar
             // 
@@ -567,8 +576,8 @@
         private System.Windows.Forms.Label lblDistrito;
         private System.Windows.Forms.Label lblCantón;
         private System.Windows.Forms.Label lblProvincia;
-        private System.Windows.Forms.TextBox txtTelefóno;
-        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.TextBox txtTeléfono;
+        private System.Windows.Forms.Label lblTeléfono;
         private System.Windows.Forms.TextBox txtDistrito;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
