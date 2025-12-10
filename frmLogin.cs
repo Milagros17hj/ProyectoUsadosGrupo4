@@ -22,6 +22,12 @@ namespace ProyectoUsadosGrupo4
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+          
 
         }
     }
