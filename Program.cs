@@ -16,8 +16,9 @@ namespace ProyectoUsadosGrupo4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmlogin());
-            Application.Run(new frmAgregarEmpleado());
+            Application.Run(new frmlogin());
+            //Application.Run(new frmAgregarEmpleado());
+            //Application.Run(new frmRegistroCliente());
         }
     }
 }

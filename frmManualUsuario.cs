@@ -7,24 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace ProyectoUsadosGrupo4
 {
-    public partial class frmMenu : Form
+    public partial class frmManualUsuario : Form
     {
-        public frmMenu()
+        public frmManualUsuario()
         {
             InitializeComponent();
         }
 
-        private void rEGISTARCLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnManualUsuario_Click(object sender, EventArgs e)
         {
-            frmRegistroCliente cliente = new frmRegistroCliente();
-            cliente.MdiParent = this;   
-            cliente.Show();
-
+            Process.Start(@"AJUSTAR CON LA RUTA DONDE TIENEN EL MANUAL");
         }
-
-
     }
 }

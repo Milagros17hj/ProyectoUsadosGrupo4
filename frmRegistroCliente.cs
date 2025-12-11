@@ -1,4 +1,5 @@
-﻿using System;
+﻿using libreriaIII2025;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,79 +8,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libreriaIII2025;
 
 namespace ProyectoUsadosGrupo4
 {
-    public partial class frmAgregarEmpleado : Form
+    public partial class frmRegistroCliente : Form
     {
-        public DataSet ds;
-        string idRol;
-        string idTipoIdentificacion;
-        string idProvincia;
-        string sexo;
+        public DataSet ds;                
+        string idTipoIdentificacion;      
+        string idProvincia;              
+        string sexo;                      
         bool cargandoDatos = false;
-  
-
-
-        public frmAgregarEmpleado()
+        public frmRegistroCliente()
         {
             InitializeComponent();
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+
         }
         private void limpiar()
         {
-            ckbEstado.CheckedChanged -= ckbEstado_CheckedChanged_1;
+
+            ckbEstado.CheckedChanged -= ckbEstado_CheckedChanged;
 
             txtNombre.Clear();
             txtApellido1.Clear();
             txtApellido2.Clear();
-            cmbIdentificación.SelectedItem = null;
             txtIdentificación.Clear();
-            dtpVencimiento.Value = DateTime.Now;
-            dtpNacimiento.Value = DateTime.Now;
-            cmbSexo.SelectedItem = null;
             txtEmail.Clear();
-            cmbProvincia.SelectedItem = null;
             txtCanton.Clear();
             txtDistrito.Clear();
             txtTeléfono.Clear();
-            cmbRol.SelectedItem = null;
             txtContraseña.Clear();
             txtConfirmar.Clear();
             dgvDatos.DataSource = null;
+            cmbIdentificación.SelectedItem = null;
+            cmbSexo.SelectedItem = null;
+            cmbProvincia.SelectedItem = null;
+            dtpVencimiento.Value = DateTime.Now;
+            dtpNacimiento.Value = DateTime.Now;
             ckbEstado.Checked = false;
+            ckbEstado.Enabled = false; //PARA QUE ELL CLIENTE NO PUEDA CAMBIAR EL ESTADO
+
+            // perfil siemmpre fijo porque es cliente
+            cmbRol.SelectedItem = "Cliente";
+            cmbRol.Enabled = false;
+
 
             if (ds != null) ds.Clear();
             txtNombre.Focus();
-            ckbEstado.CheckedChanged += ckbEstado_CheckedChanged_1;
 
-
-
+            ckbEstado.CheckedChanged += ckbEstado_CheckedChanged;
         }
 
-        private void frmAgregarEmpleado_Load(object sender, EventArgs e)
+        private void frmRegistroCliente_Load(object sender, EventArgs e)
         {
             try
             {
-                // roles
-                string cmdRol = "SELECT id_rol, nombre FROM Rol";
-                ds = Utilidades.ejecutar(cmdRol);
-                cmbRol.DataSource = ds.Tables[0].DefaultView;
-                cmbRol.DisplayMember = "nombre";   
-                cmbRol.ValueMember = "id_rol";       
-                cmbRol.SelectedItem = null;
-
-                // Catálogo de Tipo de Identificación
+               
                 string cmdTipo = "SELECT id_tipo, descripcion FROM TipoIdentificacion";
                 ds = Utilidades.ejecutar(cmdTipo);
                 cmbIdentificación.DataSource = ds.Tables[0].DefaultView;
@@ -87,7 +78,7 @@ namespace ProyectoUsadosGrupo4
                 cmbIdentificación.ValueMember = "id_tipo";
                 cmbIdentificación.SelectedItem = null;
 
-                // Provincias
+               
                 string cmdProv = "SELECT id_provincia, nombre FROM Provincia";
                 ds = Utilidades.ejecutar(cmdProv);
                 cmbProvincia.DataSource = ds.Tables[0].DefaultView;
@@ -95,30 +86,40 @@ namespace ProyectoUsadosGrupo4
                 cmbProvincia.ValueMember = "id_provincia";
                 cmbProvincia.SelectedItem = null;
 
+                
+                cmbRol.Items.Clear();
+                cmbRol.Items.Add("Cliente");
+                cmbRol.SelectedIndex = 0;
+                cmbRol.Enabled = false; // no se puede cambiar
 
+
+                if (Sesiones.Rol == 1) // Administrador
+                {
+                    btnConsultar.Enabled = true;
+                    btnEliminar.Enabled = true;
+
+                }
+                else if (Sesiones.Rol == 5) // Cliente
+                {
+                    btnConsultar.Enabled = false;
+                    btnEliminar.Enabled = false;
+
+                }
+                else
+                {
+                    // Otros roles 
+                    btnConsultar.Enabled = true;
+                    btnEliminar.Enabled = false;
+ 
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los catálogos: 001" + ex.Message);
+                MessageBox.Show("Error al cargar los catálogos: 001 " + ex.Message);
             }
-        }
-        
-        private void cmbRol_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            try
-            {
-                string cmd = string.Format("SELECT id_rol FROM Rol WHERE nombre = '{0}'", cmbRol.Text);
-                ds = Utilidades.ejecutar(cmd);
-                idRol = ds.Tables[0].Rows[0]["id_rol"].ToString();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al seleccionar rol: 002" + ex.Message);
-            }
-
 
         }
+
         private void cmbIdentificación_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -133,6 +134,7 @@ namespace ProyectoUsadosGrupo4
             }
 
         }
+
         private void cmbProvincia_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -145,82 +147,78 @@ namespace ProyectoUsadosGrupo4
             {
                 MessageBox.Show("Error al seleccionar provincia: 002" + ex.Message);
             }
-
         }
-        
+
         private void cmbSexo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                sexo = cmbSexo.SelectedItem.ToString(); 
+                sexo = cmbSexo.SelectedItem.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al seleccionar sexo:002" + ex.Message);
             }
-
-
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            grabar();
+            Grabar();
         }
-        public void grabar()
-        { 
+
+        public void Grabar()
+        {
             try
             {
-                string fechaSistema;      
+                string fechaSistema;
                 string contraseña;
                 int estado = 1;       
-                int es_empleado = 1;
+                int es_empleado = 0;  
 
                 fechaSistema = DateTime.Now.ToString("MM/dd/yyyy");
                 contraseña = Utilidades.codificar(txtContraseña.Text);
 
                 if (txtContraseña.Text == txtConfirmar.Text)
                 {
-                    // PARA LA TABLA EMPLEADOS 
-                    string cmdEmpleado = string.Format(
-                        "INSERT INTO Empleado (id_tipo_identificacion, numero_identificacion, nombre, primer_apellido, segundo_apellido, sexo, fecha_nacimiento, fecha_vencimiento_doc, email, telefono, id_provincia, canton, distrito, id_rol, id_estado) " +
-                        "VALUES ({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}', {13}, {14})",
+                    // PARA LA TABLA CLIENTES
+                    string cmdCliente = string.Format(
+                        "INSERT INTO Cliente (id_tipo_identificacion, numero_identificacion, nombre, primer_apellido, segundo_apellido, email, telefono, id_provincia, canton, distrito, id_estado) " +
+                        "VALUES ({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', {7}, '{8}', '{9}', {10})",
                         idTipoIdentificacion,
                         txtIdentificación.Text.Trim(),
                         txtNombre.Text.Trim(),
                         txtApellido1.Text.Trim(),
                         txtApellido2.Text.Trim(),
-                        sexo,
-                        dtpNacimiento.Value.ToString("yyyy-MM-dd"),
-                        dtpVencimiento.Value.ToString("yyyy-MM-dd"),
                         txtEmail.Text.Trim(),
                         txtTeléfono.Text.Trim(),
                         idProvincia,
                         txtCanton.Text.Trim(),
                         txtDistrito.Text.Trim(),
-                        idRol,
                         estado
-                        );
+                    );
 
-                    Utilidades.ejecutar(cmdEmpleado);
+                    Utilidades.ejecutar(cmdCliente);
 
-                    // PARA LA TABLA USUARIOS 
+                    // PARA LA TABLA USUARIOS
                     string cmdUsuario = string.Format(
-                       "INSERT INTO Usuario (numero_identificacion, contrasena, email, es_empleado, id_estado, fec_creacion, fec_modificacion) " +
-                       "VALUES ('{0}', '{1}', '{2}', {3}, {4}, '{5}', '{6}')",
+                        "INSERT INTO Usuario (numero_identificacion, contrasena, email, es_empleado, id_estado, fec_creacion, fec_modificacion) " +
+                        "VALUES ('{0}', '{1}', '{2}', {3}, {4}, '{5}', '{6}')",
                         txtIdentificación.Text.Trim(),
                         contraseña,
                         txtEmail.Text.Trim(),
                         es_empleado,
-                        estado,           
-                        fechaSistema,     
-                        fechaSistema      
+                        estado,
+                        fechaSistema,
+                        fechaSistema
                     );
+
                     Utilidades.ejecutar(cmdUsuario);
 
-                    MessageBox.Show("Empleado y usuario creados satisfactoriamente", "Guardar",
+                    MessageBox.Show("Cliente y usuario creados satisfactoriamente", "Guardar",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                   cargar();
+                    cargar();
+
                 }
                 else
                 {
@@ -239,10 +237,12 @@ namespace ProyectoUsadosGrupo4
         {
             try
             {
-                string cmd = string.Format("select a.numero_identificacion as Cedula, a.nombre, a.primer_apellido,  a.segundo_apellido,  a.sexo,  a.fecha_nacimiento," +
-                    "a.fecha_vencimiento_doc, b.nombre as Rol,  c.email as UsuarioEmail, c.id_estado as EstadoUsuario, c.fec_creacion, c.fec_modificacion " +
-                    "from Empleado a, Rol b, Usuario c " +
-                    "where a.numero_identificacion = '{0}' and a.id_rol = b.id_rol and a.numero_identificacion = c.numero_identificacion", txtIdentificación.Text.Trim());
+                string cmd = string.Format("select a.numero_identificacion as Cedula, a.nombre, a.primer_apellido, a.segundo_apellido, " +
+                    "a.email, a.telefono, b.nombre as Provincia, c.email as UsuarioEmail, c.id_estado as EstadoUsuario, " +
+                    "c.fec_creacion, c.fec_modificacion " +
+                    "from Cliente a, Provincia b, Usuario c " +
+                    "where a.id_provincia = b.id_provincia and a.numero_identificacion = c.numero_identificacion and a.numero_identificacion = '{0}'", txtIdentificación.Text.Trim());
+
 
                 ds = Utilidades.ejecutar(cmd);
                 dgvDatos.DataSource = ds.Tables[0].DefaultView;
@@ -252,10 +252,9 @@ namespace ProyectoUsadosGrupo4
                     txtIdentificación.Text = ds.Tables[0].Rows[0]["Cedula"].ToString();
                     int estadoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["EstadoUsuario"]);
                     cargandoDatos = true;
-                    ckbEstado.Checked = (estadoUsuario == 2);
+                    ckbEstado.Checked = (estadoUsuario == 2); 
                     cargandoDatos = false;
                 }
-
             }
             catch (Exception ex)
             {
@@ -263,7 +262,7 @@ namespace ProyectoUsadosGrupo4
             }
         }
 
-        private void ckbEstado_CheckedChanged_1(object sender, EventArgs e)
+        private void ckbEstado_CheckedChanged(object sender, EventArgs e)
         {
             string cmd;
             int valor;
@@ -278,8 +277,8 @@ namespace ProyectoUsadosGrupo4
                 txtIdentificación.Focus();
                 return;
             }
-            string validar = string.Format("SELECT COUNT(*) FROM Usuario WHERE numero_identificacion = '{0}'", txtIdentificación.Text.Trim());
 
+            string validar = string.Format("SELECT COUNT(*) FROM Usuario WHERE numero_identificacion = '{0}'", txtIdentificación.Text.Trim());
             DataSet dsValidar = Utilidades.ejecutar(validar);
             int existe = Convert.ToInt32(dsValidar.Tables[0].Rows[0][0]);
 
@@ -293,26 +292,25 @@ namespace ProyectoUsadosGrupo4
 
             if (ckbEstado.Checked == true)
             {
-                valor = 2; // 2 ES INHABILITADO EN LA DB
-                cmd = string.Format("UPDATE Usuario SET id_estado = {0}, fec_modificacion = '{1}' where numero_identificacion = '{2}'",
-                valor, fechaSistema, txtIdentificación.Text.Trim());
+                valor = 2; // Inhabilitado
+                cmd = string.Format("UPDATE Usuario SET id_estado = {0}, fec_modificacion = '{1}' WHERE numero_identificacion = '{2}'",
+                    valor, fechaSistema, txtIdentificación.Text.Trim());
                 Utilidades.ejecutar(cmd);
 
                 MessageBox.Show("Se inhabilitó satisfactoriamente al usuario", "Actualización",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cargar();
             }
             else
-            { 
-                valor = 1; // 1 ES HABILITADO EN LA DB
+            {
+                valor = 1; // Habilitado
                 cmd = string.Format("UPDATE Usuario SET id_estado = {0}, fec_modificacion = '{1}' WHERE numero_identificacion = '{2}'",
-                valor, fechaSistema, txtIdentificación.Text.Trim());
+                    valor, fechaSistema, txtIdentificación.Text.Trim());
                 Utilidades.ejecutar(cmd);
 
-                MessageBox.Show("Se habilitó satisfactoriamente al Usuario", "Actualización",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se habilitó satisfactoriamente al usuario", "Actualización",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cargar();
-
             }
 
         }
@@ -321,13 +319,26 @@ namespace ProyectoUsadosGrupo4
         {
             try
             {
+                // SOLO ADMI PUEDE CONSULTAR
+                if (Sesiones.Rol != 1) // 1 = Admin
+                {
+                    MessageBox.Show("No tiene permisos para consultar", "Permisos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string cmd = string.Format(
-                    "SELECT a.numero_identificacion as Cedula, a.nombre, a.primer_apellido, a.segundo_apellido, a.sexo,a.fecha_nacimiento, a.fecha_vencimiento_doc, " +
-                    " b.nombre as Rol, c.email AS UsuarioEmail, c.id_estado AS EstadoUsuario, c.fec_creacion, c.fec_modificacion " +
-                    "from Empleado a, Rol b, Usuario c where a.nombre LIKE '%{0}%' and a.id_rol = b.id_rol and a.numero_identificacion = c.numero_identificacion",
+                    "select a.numero_identificacion as Cedula, a.nombre, a.primer_apellido, a.segundo_apellido, " +
+                    "a.email, a.telefono, b.nombre as Provincia, c.email as UsuarioEmail, c.id_estado as EstadoUsuario, " +
+                    "c.fec_creacion, c.fec_modificacion " +
+                    "from Cliente a, Provincia b, Usuario c " +
+                    "where a.nombre LIKE '%{0}%' " +
+                    "and a.id_provincia = b.id_provincia " +
+                    "and a.numero_identificacion = c.numero_identificacion",
                     txtNombre.Text.Trim());
 
                 ds = Utilidades.ejecutar(cmd);
+
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     dgvDatos.DataSource = ds.Tables[0].DefaultView;
@@ -335,12 +346,12 @@ namespace ProyectoUsadosGrupo4
                     txtIdentificación.Text = ds.Tables[0].Rows[0]["Cedula"].ToString();
                     int estadoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0]["EstadoUsuario"]);
                     cargandoDatos = true;
-                    ckbEstado.Checked = (estadoUsuario == 2);
+                    ckbEstado.Checked = (estadoUsuario == 2); 
                     cargandoDatos = false;
                 }
                 else
                 {
-                    MessageBox.Show("El empleado no existe en el sistema.", "Consulta",
+                    MessageBox.Show("El cliente no existe en el sistema.", "Consulta",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
                 }
@@ -351,6 +362,9 @@ namespace ProyectoUsadosGrupo4
             }
         }
 
+
+
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             eliminar();
@@ -360,6 +374,14 @@ namespace ProyectoUsadosGrupo4
         {
             try
             {
+                // sOLO ADMI PUEDE ELIMINAR
+                if (Sesiones.Rol != 1) // 1 = Admin
+                {
+                    MessageBox.Show("No tiene permisos para eliminar", "Permisos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (string.IsNullOrWhiteSpace(txtIdentificación.Text))
                 {
                     MessageBox.Show("Debe ingresar el número de identificación para eliminar.", "Eliminar",
@@ -368,22 +390,23 @@ namespace ProyectoUsadosGrupo4
                     return;
                 }
 
-                //SE ELIMINA DE LA TABLA DE USUARIOS
+                // SE ELIMINA DE LA TABLA USUARIOS
                 string cmdUsuario = string.Format(
                     "DELETE FROM Usuario WHERE numero_identificacion = '{0}'",
                     txtIdentificación.Text.Trim()
                 );
                 Utilidades.ejecutar(cmdUsuario);
 
-                // SE ELIMINA DE LA TABLA EMPLEADOS
-                string cmdEmpleado = string.Format(
-                    "DELETE FROM Empleado WHERE numero_identificacion = '{0}'",
+                // SE ELIMINA DE LA TABLA CLIENTES
+                string cmdCliente = string.Format(
+                    "DELETE FROM Cliente WHERE numero_identificacion = '{0}'",
                     txtIdentificación.Text.Trim()
                 );
-                Utilidades.ejecutar(cmdEmpleado);
+                Utilidades.ejecutar(cmdCliente);
 
-                MessageBox.Show("Se a eliminado al usuario satisfactoriamente", "Eliminar",
+                MessageBox.Show("Se ha eliminado al cliente satisfactoriamente", "Eliminar",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 limpiar();
                 cargar();
             }
@@ -392,6 +415,6 @@ namespace ProyectoUsadosGrupo4
                 MessageBox.Show("Ha ocurrido un error al eliminar: 006 " + ex.Message);
             }
         }
+
     }
-    
 }
